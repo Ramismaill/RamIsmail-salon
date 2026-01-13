@@ -20,6 +20,7 @@
 @import 'layout/footer.css';
 
 @import 'pages/booking.css';
+
 /* ===============================
    CRITICAL: PREVENT DOUBLE SCROLLBAR
    =============================== */
@@ -30,7 +31,6 @@ html {
 }
 
 body {
-   overflow-x: hidden !important;
-   overflow-y: visible !important;
+   overflow: visible !important;
    max-width: 100vw !important;
 }
