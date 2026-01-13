@@ -131,7 +131,13 @@
     color: white;
     z-index: 1600;
     padding: 120px 50px 50px;
-    transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+
+    /* VISIBILITY: Hidden by default to prevent horizontal scroll */
+    visibility: hidden;
+
+    /* Transition: Delay visibility hide until slide is done */
+    transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1), visibility 0s linear 0.6s;
+
     display: flex;
     flex-direction: column;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
@@ -144,6 +150,9 @@
 
 .fly-menu.active {
     right: 0;
+    /* VISIBILITY: Show immediately */
+    visibility: visible;
+    transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1), visibility 0s linear 0s;
 }
 
 /* Links */
