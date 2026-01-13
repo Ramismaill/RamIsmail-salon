@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 // ======================================
 // 1. DATABASE CONNECTION (SQLite)
 // ======================================
-const dbPath = path.join(__dirname, 'database.sqlite');
+const dbPath = path.join(process.cwd(), 'database.sqlite');
 const db = new Database(dbPath);
 db.pragma('journal_mode = WAL');
 
@@ -31,7 +31,13 @@ const transporter = nodemailer.createTransport({
 // ======================================
 // 3. MIDDLEWARE
 // ======================================
-app.use(express.static(path.join(__dirname, 'public')));
+// Use process.cwd() to be safer on different hosting environments
+app.use(express.static(path.join(process.cwd(), 'public')));
+
+// Explicitly serve subdirectories to ensure they are found
+app.use('/css', express.static(path.join(process.cwd(), 'public/css')));
+app.use('/js', express.static(path.join(process.cwd(), 'public/js')));
+app.use('/assets', express.static(path.join(process.cwd(), 'public/assets')));
 app.use(express.json());
 
 // ======================================
@@ -65,8 +71,8 @@ app.get('/api/services', (req, res) => {
     } catch (err) {
         console.error('Servisleri çekerken hata:', err);
         res.status(200).json([
-            { name_en: 'Luxury Haircut (DB Backup)', name_tr: 'Lüks Saç Kesim', name_ar: 'قص شعر فاخر', price_euro: 180 },
-            { name_en: 'Professional Coloring (DB Backup)', name_tr: 'Profesyonel Boyama', name_ar: 'صبغ احترافي', price_euro: 240 }
+            { name_en: 'Luxury Haircut', name_tr: 'Lüks Saç Kesim', name_ar: 'قص شعر فاخر', price_euro: 180 },
+            { name_en: 'Professional Coloring', name_tr: 'Profesyonel Boyama', name_ar: 'صبغ احترافي', price_euro: 240 }
         ]);
     }
 });
