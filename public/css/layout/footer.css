@@ -1,0 +1,37 @@
+/* ===============================
+   FOOTER
+   =============================== */
+.site-footer {
+    background: #111;
+    color: #dcdcdc;
+    text-align: center;
+    padding: 60px 8%;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #dcdcdc;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-accent);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+    transition: 0.3s;
+}
+
+.social-icon:hover svg {
+    fill: var(--color-accent);
+}

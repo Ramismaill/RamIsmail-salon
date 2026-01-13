@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Database (local SQLite file)
+# If you want to backup the database to GitHub, remove this line.
+# If you want it to remain local-only (recommended for real apps), keep it ignored.
+database.sqlite
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# Editor directories
+.check/
+.vscode/
+.idea/

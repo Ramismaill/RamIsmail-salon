@@ -1,0 +1,276 @@
+/* ===============================
+   FLY MENU STYLES
+   =============================== */
+
+/* 1. TRIGGER BUTTON */
+.nav-trigger {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    z-index: 2001;
+    /* Above header */
+    /* Positioning logic */
+    position: fixed;
+    right: 6%;
+    top: 40px;
+    transform: translateY(-50%);
+}
+
+.nav-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    transition: color 0.4s ease;
+}
+
+.nav-lines {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-lines span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    margin-bottom: 5px;
+    transition: transform 0.2s ease, margin 0.2s 0.2s ease, opacity 0s 0.2s, background 0.4s ease;
+}
+
+.main-header.scrolled .nav-label {
+    color: var(--color-primary);
+}
+
+.main-header.scrolled .nav-lines span {
+    background: var(--color-primary);
+}
+
+.nav-lines span:last-child {
+    margin-bottom: 0;
+}
+
+/* Trigger Active State */
+.nav-trigger.active .nav-label {
+    color: var(--color-primary);
+}
+
+.nav-trigger.active .nav-lines span {
+    background: var(--color-primary);
+}
+
+.nav-trigger.active .nav-lines span {
+    background: #fff;
+}
+
+/* Make white when menu is open (dark bg) */
+.nav-trigger.active .nav-label {
+    color: #fff;
+}
+
+.nav-trigger.active span:nth-child(1) {
+    margin-bottom: -3px;
+    transform: rotate(0deg);
+    transition: margin 0.2s ease, transform 0.2s 0.2s ease;
+}
+
+.nav-trigger.active span:nth-child(2) {
+    opacity: 0;
+    margin-bottom: 0;
+    margin-top: -2px;
+    transition: opacity 0s 0.2s, margin 0.2s ease;
+}
+
+.nav-trigger.active span:nth-child(3) {
+    margin-top: 0;
+    transform: rotate(-45deg);
+    transition: margin 0.2s ease, transform 0.2s 0.2s ease;
+}
+
+/* 2. OVERLAY */
+.fly-menu-overlay {
+    /* Default State (Hidden) */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Dark transparent background */
+    backdrop-filter: blur(4px);
+    /* Blurs the content behind */
+    z-index: 1500;
+    /* Sit behind the menu (1600) but above header (1000) */
+    transition: 0.4s ease;
+    cursor: pointer;
+    /* Shows hand cursor */
+
+    /* Start invisible */
+    opacity: 0;
+    visibility: hidden;
+}
+
+.fly-menu-overlay.active {
+    /* Active State (Visible) */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 3. MENU CONTAINER */
+.fly-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 400px;
+    max-width: 85%;
+    height: 100vh;
+    background: var(--color-primary);
+    /* Dark Background */
+    color: white;
+    z-index: 1600;
+    padding: 120px 50px 50px;
+    transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+
+    /* NEW: Enables scrolling inside the menu */
+    overflow-y: auto;
+    /* NEW: Makes scrolling smooth on iPhones */
+    -webkit-overflow-scrolling: touch;
+}
+
+.fly-menu.active {
+    right: 0;
+}
+
+/* Links */
+.fly-nav-links {
+    list-style: none;
+    margin: 0 0 40px 0;
+    padding: 0;
+}
+
+.fly-nav-links li {
+    margin-bottom: 20px;
+}
+
+.fly-nav-links a {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.fly-nav-links a:hover {
+    color: var(--color-accent);
+    padding-left: 10px;
+}
+
+/* Buttons */
+.fly-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.fly-btn {
+    padding: var(--btn-padding);
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: var(--font-size-small);
+    font-weight: var(--btn-font-weight);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--btn-radius);
+    transition: all var(--transition-fast) var(--ease-slow);
+}
+
+.fly-btn.gold {
+    background: var(--color-accent);
+    color: var(--color-light);
+    box-shadow: var(--btn-shadow);
+}
+
+.fly-btn.outline {
+    color: var(--color-accent);
+    background: transparent;
+}
+
+.fly-btn:hover {
+    background: var(--color-light);
+    color: var(--color-primary);
+    border-color: var(--color-light);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.fly-footer {
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+}
+
+.fly-status {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.fly-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lang-toggle {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.lang-toggle span {
+    cursor: pointer;
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+.lang-toggle span.active {
+    opacity: 1;
+    color: var(--color-accent);
+}
+
+.lang-toggle span:hover {
+    opacity: 0.7;
+}
+
+/* RTL Support for Fly Menu */
+[dir="rtl"] .fly-menu {
+    right: auto;
+    left: -100%;
+}
+
+[dir="rtl"] .fly-menu.active {
+    left: 0;
+}
+
+[dir="rtl"] .fly-nav-links a:hover {
+    padding-left: 0;
+    padding-right: 10px;
+}
+
+/* Mobile check (from style.css) */
+@media (max-width: 768px) {
+    .nav-label {
+        display: none !important;
+    }
+}

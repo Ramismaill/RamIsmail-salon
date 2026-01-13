@@ -1,0 +1,94 @@
+/* ===============================
+   HEADER
+   =============================== */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    background: rgba(255, 255, 255, 0);
+    border-bottom: 1px solid rgba(191, 163, 122, 0);
+    backdrop-filter: blur(12px);
+    box-shadow: none;
+    z-index: 1000;
+    transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.main-header.scrolled {
+    background: rgba(255, 255, 255, 0.82);
+    border-bottom: 1px solid rgba(191, 163, 122, 0.25);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo h1 {
+    font-size: 1.4rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 4px;
+    transition: color 0.4s ease;
+}
+
+.logo h3 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #fff;
+    transition: color 0.4s ease;
+}
+
+.main-header.scrolled .logo h1 {
+    color: var(--color-primary);
+}
+
+.main-header.scrolled .logo h3 {
+    color: var(--color-primary);
+}
+
+/* Header Language Toggle (for gallery/booking pages) */
+.header-lang {
+    position: absolute;
+    right: 6%;
+}
+
+.header-lang span {
+    color: var(--color-primary);
+}
+
+/* RTL Support */
+[dir="rtl"] .main-header {
+    direction: ltr;
+}
+
+[dir="rtl"] .header-lang {
+    right: auto;
+    left: 6%;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .logo h1 {
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+        font-weight: 800;
+    }
+
+    .logo h3 {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        font-weight: 600;
+        color: #ffffff !important;
+    }
+}

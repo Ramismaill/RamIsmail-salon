@@ -1,0 +1,197 @@
+/* ===============================
+   UNIFIED BUTTON SYSTEM
+   =============================== */
+
+/* ===== BASE BUTTON STYLES ===== */
+.btn,
+.cta-button,
+.fly-btn,
+.gallery-btn,
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: var(--btn-padding);
+    font-family: var(--font-body);
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn-font-weight);
+    letter-spacing: var(--btn-letter-spacing);
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    transition: all var(--transition-fast) var(--ease-slow);
+}
+
+/* ===== PRIMARY BUTTON (Gold) ===== */
+.btn-primary,
+.cta-button,
+.gallery-btn,
+.whatsapp-button {
+    background: var(--color-accent);
+    color: var(--color-light);
+    box-shadow: var(--btn-shadow);
+}
+
+.btn-primary:hover,
+.cta-button:hover,
+.gallery-btn:hover,
+.whatsapp-button:hover {
+    background: var(--color-accent-hover);
+    color: var(--color-light);
+    transform: translateY(-3px);
+    box-shadow: var(--btn-shadow-hover);
+}
+
+.btn-primary:active,
+.cta-button:active,
+.gallery-btn:active,
+.whatsapp-button:active {
+    transform: translateY(-1px);
+}
+
+/* ===== SECONDARY BUTTON (Outline) ===== */
+.btn-secondary,
+.inverted-button {
+    background: var(--color-accent);
+    color: var(--color-light);
+    box-shadow: var(--btn-shadow);
+}
+
+.btn-secondary:hover,
+.inverted-button:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--btn-shadow-hover);
+}
+
+/* ===== SUBMIT BUTTON (Form) ===== */
+.submit-btn,
+.btn-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary);
+    color: var(--color-light);
+    border: none;
+    padding: 16px 50px;
+    font-family: var(--font-body);
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn-font-weight);
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    transition: all var(--transition-fast) var(--ease-slow);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 20px rgba(31, 31, 31, 0.2);
+}
+
+.submit-btn:hover,
+.btn-submit:hover {
+    background: var(--color-accent);
+    transform: translateY(-3px);
+    box-shadow: var(--btn-shadow-hover);
+}
+
+.submit-btn:active,
+.btn-submit:active {
+    transform: translateY(-1px);
+}
+
+/* ===== BUTTON ARROW ICON ===== */
+.btn-arrow {
+    transition: transform var(--transition-fast) ease;
+    font-size: 1.1rem;
+}
+
+.cta-button:hover .btn-arrow,
+.gallery-btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+[dir="rtl"] .btn-arrow {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .cta-button:hover .btn-arrow,
+[dir="rtl"] .gallery-btn:hover .btn-arrow {
+    transform: scaleX(-1) translateX(-5px);
+}
+
+/* ===== RETURN HOME BUTTON ===== */
+.return-home-btn {
+    position: absolute;
+    left: 6%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: var(--font-size-small);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-fast) var(--ease-slow);
+    border-radius: var(--btn-radius);
+}
+
+.return-home-btn:hover {
+    color: var(--color-accent);
+    transform: translateX(-3px);
+}
+
+.return-arrow {
+    font-size: 1.2rem;
+    transition: transform var(--transition-fast) ease;
+}
+
+.return-home-btn:hover .return-arrow {
+    transform: translateX(-4px);
+}
+
+[dir="rtl"] .return-home-btn {
+    left: auto;
+    right: 6%;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .return-arrow {
+    transform: scaleX(-1);
+}
+
+/* ===== GALLERY SEE MORE CONTAINER ===== */
+.gallery-see-more {
+    text-align: center;
+    margin-top: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== MODAL CLOSE BUTTON ===== */
+.modal-close-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent);
+    color: var(--color-light);
+    border: none;
+    padding: var(--btn-padding);
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: var(--btn-font-weight);
+    font-size: var(--btn-font-size);
+    text-transform: uppercase;
+    letter-spacing: var(--btn-letter-spacing);
+    margin-top: 20px;
+    transition: all var(--transition-fast) ease;
+    box-shadow: var(--btn-shadow);
+}
+
+.modal-close-btn:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--btn-shadow-hover);
+}

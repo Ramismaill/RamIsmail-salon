@@ -1,0 +1,247 @@
+/* ===============================
+   ABOUT PAGE & ANIMATIONS
+   =============================== */
+
+/* 1. Base Setup & Backgrounds */
+.about-page {
+    background-color: #fdfcf9;
+    /* Base creamy color */
+}
+
+.about-main {
+    position: relative;
+    background: transparent;
+    /* CRITICAL: Must be transparent to see blobs */
+    z-index: 2;
+}
+
+/* 2. Motion Canvas (The Blobs) */
+.motion-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* Sits behind content, above body background */
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.ambient-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    /* Increased opacity slightly for visibility */
+}
+
+.blob-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #f3e9d6 0%, transparent 70%);
+    top: 10%;
+    /* Moved down so it peeks under the hero image */
+    right: -100px;
+    animation: floatMotion 25s ease-in-out infinite;
+}
+
+.blob-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #bfa37a 0%, transparent 70%);
+    bottom: -50px;
+    left: -100px;
+    opacity: 0.3;
+    animation: floatMotion 30s ease-in-out infinite reverse;
+}
+
+.blob-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #eae2cf 0%, transparent 70%);
+    top: 50%;
+    left: 20%;
+    opacity: 0.4;
+    animation: ambientPulse 20s ease-in-out infinite;
+}
+
+@keyframes floatMotion {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(-30px, 50px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(40px, -20px) scale(0.9);
+    }
+}
+
+@keyframes ambientPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+/* 3. Hero Section */
+.about-page .page-hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Ensure you have this image or change the URL */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../assets/images/pexels-enginakyurt-3065208.jpg') center/cover no-repeat;
+    margin-top: 80px;
+    /* Space for fixed header */
+    position: relative;
+    z-index: 5;
+}
+
+.about-page .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 4. Ocean Wave Animation Section */
+#about {
+    position: relative;
+    padding: 100px 8%;
+    /* No background color here to let blobs show, or semi-transparent */
+}
+
+/* Top Wave */
+#about::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none"><defs><linearGradient id="waveGrad1" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:%23bfa37a;stop-opacity:0.4" /><stop offset="100%25" style="stop-color:%23bfa37a;stop-opacity:0" /></linearGradient></defs><path d="M0,40 Q300,0 600,40 T1200,40 L1200,100 L0,100 Z" fill="url(%23waveGrad1)"/></svg>');
+    background-repeat: repeat-x;
+    background-size: 600px 100px;
+    animation: oceanWave 15s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Bottom/Secondary Wave */
+#about::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 200%;
+    height: 80px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none"><defs><linearGradient id="waveGrad2" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:%23bfa37a;stop-opacity:0.25" /><stop offset="100%25" style="stop-color:%23bfa37a;stop-opacity:0" /></linearGradient></defs><path d="M0,50 Q300,10 600,50 T1200,50 L1200,100 L0,100 Z" fill="url(%23waveGrad2)"/></svg>');
+    background-repeat: repeat-x;
+    background-size: 600px 80px;
+    animation: oceanWave 18s linear infinite reverse;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes oceanWave {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* 5. Content Styling */
+.small-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    /* Above waves */
+}
+
+/* Glassmorphism for blocks so text is readable over blobs */
+.about-block,
+.about-grid {
+    background: rgba(253, 252, 249, 0.6);
+    /* Semi-transparent white */
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 60px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.block-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #bfa37a;
+    /* Primary Gold */
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.block-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.block-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a4a4a;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* 6. CTA Section - About Page Only */
+.about-page .about-cta {
+    background: linear-gradient(to bottom, #333, #2a2a2a);
+    color: #fff;
+    padding: var(--section-padding);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.about-page .about-cta h2 {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h2);
+    color: var(--color-accent);
+    margin-bottom: 25px;
+}
+
+/* CTA Button inherits from global buttons.css - no override needed */
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-page .page-title {
+        font-size: 2.5rem;
+    }
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Derviş Taş Hair Dresser</title>
+    <meta name="description" content="Learn more about Derviş Taş Hair Dresser at The Peninsula Istanbul.">
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="about-page">
+
+    <div class="motion-canvas">
+        <div class="ambient-blob blob-1"></div>
+        <div class="ambient-blob blob-2"></div>
+        <div class="ambient-blob blob-3"></div>
+    </div>
+
+    <header class="main-header scrolled booking-header" id="aboutHeader">
+        <a href="index.html" class="return-home-btn" id="returnBtn">
+            <span class="return-arrow">←</span>
+            <span class="return-text">Back Home</span>
+        </a>
+        <div class="logo">
+            <h1>derviş taş hair dresser</h1>
+            <h3>At The Peninsula Hotel</h3>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1 class="page-title" data-reveal data-translate="about">About Us</h1>
+        </div>
+    </section>
+
+    <main class="about-main">
+
+        <section id="about" class="about-detail">
+            <div class="container small-container">
+
+                <div class="about-block" data-reveal>
+                    <h2 class="block-title" data-translate="aboutFullTitle">A Legacy of Elegance</h2>
+                    <p class="block-text" data-translate="aboutFullText">
+                        Founded by the visionary stylist Derviş Taş, our salon has become a sanctuary for those seeking
+                        a blend of classic sophistication and modern artistry. Located within the prestigious Peninsula
+                        Istanbul Hotel, we offer an experience that transcends traditional hair styling.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-block-inner">
+                        <h3 class="block-subtitle" data-translate="expertiseTitle">Our World-Class Expertise</h3>
+                        <p class="block-text" data-translate="expertiseText">
+                            From signature balayage techniques to precision cutting, our team stays at the forefront of
+                            global hair trends. We exclusively use premium products to ensure your hair remains healthy,
+                            vibrant, and timeless.
+                        </p>
+                    </div>
+
+                    <div class="about-block-inner">
+                        <h3 class="block-subtitle" data-translate="philosophyTitle">The Art of Natural Beauty</h3>
+                        <p class="block-text" data-translate="philosophyText">
+                            We believe that true beauty lies in individuality. Our philosophy is rooted in enhancing
+                            your natural features, creating looks that are not only stunning but also effortlessly
+                            wearable.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="about-cta">
+            <div class="cta-content" data-reveal>
+                <h2 data-translate="readyTransform">Ready for Your Transformation?</h2>
+                <a href="booking.html" class="cta-button" data-translate="bookNow">Book Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="index.html#hero">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <p>© 2026 Derviş Taş Hair Dresser. All rights reserved.</p>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script>
+        // Reveal Animation on Scroll
+        const revealElements = document.querySelectorAll('[data-reveal]');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('is-visible');
+                    // Add basic fade-in CSS manually if not in main.css
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Initialize styles for reveal
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease';
+        });
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+
+</html>

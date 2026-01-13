@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Price List | Derviş Taş Hair Dresser</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/pages/prices.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="prices-page">
+
+    <header class="main-header scrolled booking-header" id="pricesHeader">
+        <a href="index.html" class="return-home-btn" id="returnBtn">
+            <span class="return-arrow">←</span>
+            <span class="return-text">Back Home</span>
+        </a>
+        <div class="logo">
+            <h1>derviş taş haır dresser</h1>
+            <h3>At The Peninsula Hotel</h3>
+        </div>
+    </header>
+
+    <div class="booking-container prices-container">
+        <div class="booking-hero">
+            <h2 class="page-title" data-reveal data-translate="pricesTitle">Price List</h2>
+            <p class="subtitle" data-reveal data-translate="pricesSubtitle">Exquisite services tailored for you</p>
+        </div>
+
+        <div id="priceListContainer" data-reveal>
+            <!-- Content will be injected by JS -->
+        </div>
+
+        <div class="price-download-section" data-reveal>
+            <p>Prefer a digital copy?</p>
+            <a href="assets/price-list.pdf" target="_blank" class="cta-button inverted-button">
+                <span class="btn-icon">↓</span> Download PDF
+            </a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="index.html#hero">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <p>© 2026 Derviş Taş Hair Dresser. All rights reserved.</p>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/services-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('priceListContainer');
+
+            servicesData.forEach(category => {
+                const catSection = document.createElement('div');
+                catSection.className = 'price-category';
+
+                const catTitle = document.createElement('h3');
+                catTitle.className = 'category-title';
+                catTitle.innerText = category.category;
+                catSection.appendChild(catTitle);
+
+                const list = document.createElement('ul');
+                list.className = 'price-items';
+
+                category.items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'price-item';
+                    li.innerHTML = `
+                        <span class="service-name">${item.name}</span>
+                        <span class="dots"></span>
+                        <span class="service-price">${item.price}</span>
+                    `;
+                    list.appendChild(li);
+                });
+
+                catSection.appendChild(list);
+                container.appendChild(catSection);
+            });
+
+            // Reveal animations
+            setTimeout(() => {
+                document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-visible'));
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

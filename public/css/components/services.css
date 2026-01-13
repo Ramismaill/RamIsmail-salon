@@ -1,0 +1,89 @@
+/* ===============================
+   SERVICES
+   =============================== */
+#services {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-background);
+}
+
+#services::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none"><defs><linearGradient id="waveGrad3" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:%23bfa37a;stop-opacity:0.4" /><stop offset="100%25" style="stop-color:%23bfa37a;stop-opacity:0" /></linearGradient></defs><path d="M0,40 Q300,0 600,40 T1200,40 L1200,100 L0,100 Z" fill="url(%23waveGrad3)"/></svg>');
+    background-repeat: repeat-x;
+    background-size: 600px 100px;
+    background-position: 0 0;
+    animation: oceanWave 15s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#services::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 200%;
+    height: 80px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none"><defs><linearGradient id="waveGrad4" x1="0%25" y1="0%25" x2="0%25" y2="100%25"><stop offset="0%25" style="stop-color:%23bfa37a;stop-opacity:0.25" /><stop offset="100%25" style="stop-color:%23bfa37a;stop-opacity:0" /></linearGradient></defs><path d="M0,50 Q300,10 600,50 T1200,50 L1200,100 L0,100 Z" fill="url(%23waveGrad4)"/></svg>');
+    background-repeat: repeat-x;
+    background-size: 600px 80px;
+    background-position: 0 0;
+    animation: oceanWave 18s linear infinite reverse;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#services>* {
+    position: relative;
+    z-index: 1;
+}
+
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.service-item {
+    background: #fff;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.4s var(--ease-slow), box-shadow 0.4s var(--ease-slow);
+    text-align: center;
+}
+
+.service-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.price-tag {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.services-view-all {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Service Item Animations */
+.services-list .service-item {
+    opacity: 1 !important;
+    transform: none !important;
+}
