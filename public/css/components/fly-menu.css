@@ -110,12 +110,14 @@
     /* Start invisible */
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
 
 .fly-menu-overlay.active {
     /* Active State (Visible) */
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 /* 3. MENU CONTAINER */
@@ -134,6 +136,8 @@
 
     /* VISIBILITY: Hidden by default to prevent horizontal scroll */
     visibility: hidden;
+    pointer-events: none;
+    /* NEW: Prevent blocking scroll when hidden */
 
     /* Transition: Delay visibility hide until slide is done */
     transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1), visibility 0s linear 0.6s;
@@ -152,6 +156,8 @@
     right: 0;
     /* VISIBILITY: Show immediately */
     visibility: visible;
+    pointer-events: auto;
+    /* NEW: Enable interaction when open */
     transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1), visibility 0s linear 0s;
 }
 
