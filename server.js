@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const Database = require('better-sqlite3');
 const nodemailer = require('nodemailer');
 
@@ -12,6 +13,14 @@ const PORT = process.env.PORT || 3000;
 // 1. DATABASE CONNECTION (SQLite)
 // ======================================
 const dbPath = path.join(process.cwd(), 'database.sqlite');
+
+// Initialize database if it doesn't exist
+const fs = require('fs');
+if (!fs.existsSync(dbPath)) {
+    console.log('Database not found. Initializing...');
+    require('./scripts/init_db.js');
+}
+
 const db = new Database(dbPath);
 db.pragma('journal_mode = WAL');
 
