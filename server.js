@@ -10,6 +10,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // ======================================
+// SESSION STORE (In-memory for simplicity)
+// ======================================
+const sessions = {};
+
+// ======================================
 // 1. DATABASE CONNECTION (SQLite)
 // ======================================
 const dbPath = path.join(process.cwd(), 'database.sqlite');
@@ -49,8 +54,53 @@ app.use('/assets', express.static(path.join(process.cwd(), 'public/assets')));
 app.use(express.json());
 
 // ======================================
+// AUTHENTICATION MIDDLEWARE
+// ======================================
+const checkAdminSession = (req, res, next) => {
+    const sessionId = req.headers['authorization']?.replace('Bearer ', '');
+    if (sessionId && sessions[sessionId]) {
+        req.admin = sessions[sessionId];
+        next();
+    } else {
+        res.status(401).json({ error: 'Unauthorized. Please login first.' });
+    }
+};
+
+// ======================================
 // 4. API ROUTES
 // ======================================
+
+// ROUTE: Admin Login
+app.post('/api/admin/login', (req, res) => {
+    const { username, password } = req.body;
+    
+    if (username === 'admin' && password === 'admin') {
+        const sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        sessions[sessionId] = { username, loggedInAt: new Date() };
+        res.json({ success: true, sessionId, message: 'Login successful' });
+    } else {
+        res.status(401).json({ error: 'Invalid credentials' });
+    }
+});
+
+// ROUTE: Admin Logout
+app.post('/api/admin/logout', (req, res) => {
+    const sessionId = req.headers['authorization']?.replace('Bearer ', '');
+    if (sessionId) {
+        delete sessions[sessionId];
+    }
+    res.json({ success: true, message: 'Logged out' });
+});
+
+// ROUTE: Check Admin Session
+app.get('/api/admin/session', (req, res) => {
+    const sessionId = req.headers['authorization']?.replace('Bearer ', '');
+    if (sessionId && sessions[sessionId]) {
+        res.json({ authenticated: true, admin: sessions[sessionId] });
+    } else {
+        res.json({ authenticated: false });
+    }
+});
 
 // ROUTE A: Get Services
 app.get('/api/services', (req, res) => {
@@ -187,6 +237,63 @@ app.get('/api/admin/confirm-appointment', (req, res) => {
     } catch (err) {
         console.error(err);
         res.send("Error confirming appointment.");
+    }
+});
+
+// ROUTE D: Get All Appointments (Admin)
+app.get('/api/admin/appointments', checkAdminSession, (req, res) => {
+    try {
+        const stmt = db.prepare(`
+            SELECT * FROM appointments 
+            ORDER BY appointment_date DESC, appointment_time DESC
+        `);
+        const appointments = stmt.all();
+        res.json(appointments);
+    } catch (err) {
+        console.error('Error fetching appointments:', err);
+        res.status(500).json({ error: 'Database error: ' + err.message });
+    }
+});
+
+// ROUTE E: Update Appointment (Admin)
+app.put('/api/admin/appointments/:id', checkAdminSession, (req, res) => {
+    const { id } = req.params;
+    const { full_name, email, phone_number, appointment_date, appointment_time, services, total_price_euro, status } = req.body;
+
+    try {
+        const updateStmt = db.prepare(`
+            UPDATE appointments 
+            SET full_name = ?, 
+                email = ?, 
+                phone_number = ?, 
+                appointment_date = ?, 
+                appointment_time = ?, 
+                services = ?, 
+                total_price_euro = ?, 
+                status = ?
+            WHERE id = ?
+        `);
+        updateStmt.run(full_name, email, phone_number, appointment_date, appointment_time, services, total_price_euro, status, id);
+        
+        res.json({ success: true, message: 'Appointment updated successfully' });
+    } catch (err) {
+        console.error('Error updating appointment:', err);
+        res.status(500).json({ error: 'Database error: ' + err.message });
+    }
+});
+
+// ROUTE F: Delete Appointment (Admin)
+app.delete('/api/admin/appointments/:id', checkAdminSession, (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const deleteStmt = db.prepare(`DELETE FROM appointments WHERE id = ?`);
+        deleteStmt.run(id);
+        
+        res.json({ success: true, message: 'Appointment deleted successfully' });
+    } catch (err) {
+        console.error('Error deleting appointment:', err);
+        res.status(500).json({ error: 'Database error: ' + err.message });
     }
 });
 
