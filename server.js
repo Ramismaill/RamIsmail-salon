@@ -332,7 +332,7 @@ app.delete('/api/admin/appointments/:id', checkAdminSession, (req, res) => {
 // ======================================
 // 5. START SERVER
 // ======================================
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running at http://0.0.0.0:${PORT}`);
+app.listen(PORT, 'localhost', () => {
+    console.log(`Server running at http://localhost:${PORT}`);
     console.log(`Available at https://dervisitas-thepeninssula-salon.onrender.com`);
 });
