@@ -50,6 +50,20 @@ const transporter = nodemailer.createTransport({
 // ======================================
 // 3. MIDDLEWARE
 // ======================================
+// CORS and security headers
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    if (req.method === 'OPTIONS') {
+        res.sendStatus(200);
+    } else {
+        next();
+    }
+});
+
+app.use(express.json());
+
 // Use __dirname for reliable path resolution on Render
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -57,7 +71,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
 app.use('/js', express.static(path.join(__dirname, 'public/js')));
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
-app.use(express.json());
 
 // ======================================
 // AUTHENTICATION MIDDLEWARE

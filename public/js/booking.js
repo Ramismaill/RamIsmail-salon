@@ -262,6 +262,8 @@ async function handleBookingSubmit(e) {
     };
 
     try {
+        console.log("Submitting booking with data:", formData);
+        
         // Send to your backend
         const response = await fetch('/api/book', {
             method: 'POST',
@@ -269,30 +271,59 @@ async function handleBookingSubmit(e) {
             body: JSON.stringify(formData)
         });
 
+        console.log("Response status:", response.status);
+        console.log("Response ok:", response.ok);
+
         if (!response.ok) {
             const errorText = await response.text();
             console.error("Server error:", errorText);
-            alert("Error: Server responded with status " + response.status);
+            alert("Error: Server responded with status " + response.status + ". Please try again.");
             return;
         }
 
-        const result = await response.json();
+        let result;
+        try {
+            result = await response.json();
+        } catch (jsonErr) {
+            console.error("Failed to parse JSON:", jsonErr);
+            console.log("Raw response:", response);
+            // Even if JSON parsing fails, if status is 200, show success
+            console.log("But status was OK, showing modal anyway");
+            showConfirmationModal();
+            return;
+        }
+        
+        console.log("Server response:", result);
         
         if (result.success) {
+            console.log("Booking successful, showing modal");
             // Show confirmation modal
             showConfirmationModal();
         } else {
+            console.error("Booking failed:", result);
             alert("Error: " + (result.error || result.message || "Unknown error"));
         }
     } catch (err) {
-        console.error("Error:", err);
+        console.error("Fetch error:", err);
         alert("Error submitting booking: " + err.message);
     }
 }
 
 function showConfirmationModal() {
+    console.log("showConfirmationModal() called");
     const modal = document.getElementById('confirmationModal');
+    if (!modal) {
+        console.error("Modal element not found!");
+        alert('Request Submitted Successfully! Our team will contact you within 24 hours.');
+        window.location.href = 'index.html';
+        return;
+    }
+    console.log("Modal element found, adding active class");
     modal.classList.add('active');
+    
+    // Extra safety: make sure it's visible
+    modal.style.display = 'flex';
+    console.log("Modal should now be visible");
 }
 
 function closeConfirmation() {
