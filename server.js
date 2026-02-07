@@ -244,7 +244,7 @@ app.get('/api/admin/confirm-appointment', (req, res) => {
         const clientMailOptions = {
             from: process.env.EMAIL_USER,
             to: booking.email,
-            subject: 'Appointment Confirmed - The Peninsula Salon',
+            subject: 'Appointment Confirmed - Ram Ismail Hair Dresser',
             html: `
                 <div style="font-family: serif; color: #333; padding: 20px;">
                     <h2>Your Appointment is Confirmed</h2>
@@ -252,7 +252,7 @@ app.get('/api/admin/confirm-appointment', (req, res) => {
                     <p>We look forward to seeing you on <strong>${booking.appointment_date}</strong> at <strong>${booking.appointment_time}</strong>.</p>
                     <p>Total: €${booking.total_price_euro}</p>
                     <hr>
-                    <p>The Peninsula Hair Salon</p>
+                    <p>Ram Ismail Hair Dresser</p>
                 </div>
             `
         };

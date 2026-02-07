@@ -25,16 +25,16 @@ const translations = {
         heroTitle: 'Where Beauty Meets Elegance',
         heroSubtitle: 'Curated design solutions for healthy, natural, and timeless style.',
         aboutTitle: 'About Us',
-        aboutText: 'At Derviş Taş Hair Dresser, we believe every woman deserves to feel beautiful, confident, and unique. Our expert stylists blend creativity and precision to deliver elegant, natural results tailored to your personal style.',
+        aboutText: 'At Ram Ismail Hair Dresser, we believe every woman deserves to feel beautiful, confident, and unique. Our expert stylists blend creativity and precision to deliver elegant, natural results tailored to your personal style.',
         servicesTitle: 'Our Services',
         galleryTitle: 'Gallery',
         contactTitle: 'Contact Us',
-        contactText: 'Visit us at <strong>Derviş Taş Hair Dresser</strong><br>or message us directly for appointments.',
+        contactText: 'Visit us at <strong>Ram Ismail Hair Dresser</strong><br>or message us directly for appointments.',
         chatWhatsapp: 'Chat on WhatsApp',
 
         // About Page Detailed
         aboutFullTitle: 'A Legacy of Elegance',
-        aboutFullText: 'Founded by the visionary stylist Derviş Taş, our salon has become a sanctuary for those seeking a blend of classic sophistication and modern artistry. Located within the prestigious Peninsula Istanbul Hotel, we offer an experience that transcends traditional hair styling.',
+        aboutFullText: 'Founded by the visionary stylist Ram Ismail, our salon has become a sanctuary for those seeking a blend of classic sophistication and modern artistry. Located within the prestigious, we offer an experience that transcends traditional hair styling.',
         expertiseTitle: 'Our World-Class Expertise',
         expertiseText: 'From signature balayage techniques to precision cutting, our team stays at the forefront of global hair trends. We exclusive use premium products to ensure your hair remains healthy, vibrant, and timeless.',
         philosophyTitle: 'The Art of Natural Beauty',
@@ -74,7 +74,7 @@ const translations = {
         closedStatus: '○ CLOSED - OPENS AT 09:00',
 
         // Footer
-        copyright: '© 2026 Derviş Taş Hair Dresser. All rights reserved.'
+        copyright: '© 2026 Ram Ismail Hair Dresser. All rights reserved.'
     },
     tr: {
         // Navigation
@@ -99,16 +99,16 @@ const translations = {
         heroTitle: 'Güzellik ile Zarafet Buluşur',
         heroSubtitle: 'Sağlıklı, doğal ve zamansız stil için özel tasarım çözümleri.',
         aboutTitle: 'Hakkımızda',
-        aboutText: "Derviş Taş Hair Dresser'da, her kadının güzel, özgüvenli ve benzersiz hissetmesi gerektiğine inanıyoruz. Uzman stilistlerimiz yaratıcılık ve hassasiyeti birleştirerek kişisel stilinize göre uyarlanmış zarif, doğal sonuçlar sunuyoruz.",
+        aboutText: "Ram Ismail Hair Dresser'da, her kadının güzel, özgüvenli ve benzersiz hissetmesi gerektiğine inanıyoruz. Uzman stilistlerimiz yaratıcılık ve hassasiyeti birleştirerek kişisel stilinize göre uyarlanmış zarif, doğal sonuçlar sunuyoruz.",
         servicesTitle: 'Hizmetlerimiz',
         galleryTitle: 'Galeri',
         contactTitle: 'İletişim',
-        contactText: '<strong>Derviş Taş Hair Dresser</strong>\'de bizi ziyaret edin<br>veya randevu için doğrudan mesaj atın.',
+        contactText: '<strong>Ram Ismail Hair Dresser</strong>\'de bizi ziyaret edin<br>veya randevu için doğrudan mesaj atın.',
         chatWhatsapp: "WhatsApp'ta Sohbet Et",
 
         // About Page Detailed
         aboutFullTitle: 'Zarafetin Mirası',
-        aboutFullText: 'Vizyoner stilist Derviş Taş tarafından kurulan salonumuz, klasik sofistikasyon ile modern sanatın birleşimini arayanlar için bir sığınak haline gelmiştir. Prestijli The Peninsula Istanbul Hotel bünyesinde, geleneksel saç tasarımının ötesinde bir deneyim sunuyoruz.',
+        aboutFullText: 'Vizyoner stilist Ram Ismail tarafından kurulan salonumuz, klasik sofistikasyon ile modern sanatın birleşimini arayanlar için bir sığınak haline gelmiştir. Prestijli Ram Ismail bünyesinde, geleneksel saç tasarımının ötesinde bir deneyim sunuyoruz.',
         expertiseTitle: 'Dünya Standartlarında Uzmanlığımız',
         expertiseText: 'İmza balayage tekniklerinden hassas kesimlere kadar ekibimiz, küresel saç trendlerinin ön saflarında yer almaktadır. Saçınızın sağlıklı, canlı ve zamansız kalmasını sağlamak için yalnızca seçkin premium ürünler kullanıyoruz.',
         philosophyTitle: 'Doğal Güzellik Sanatı',
@@ -148,7 +148,7 @@ const translations = {
         closedStatus: '○ KAPALI - 09:00 AÇILIR',
 
         // Footer
-        copyright: '© 2026 Derviş Taş Hair Dresser. Tüm hakları saklıdır.'
+        copyright: '© 2026 Ram Ismail Hair Dresser. Tüm hakları saklıdır.'
     },
     ar: {
         // Navigation
@@ -173,16 +173,16 @@ const translations = {
         heroTitle: 'حيث يلتقي الجمال بالأناقة',
         heroSubtitle: 'حلول تصميم مخصصة للأسلوب الصحي والطبيعي والخالد.',
         aboutTitle: 'من نحن',
-        aboutText: 'في Derviş Taş Hair Dresser، نؤمن بأن كل امرأة تستحق أن تشعر بالجمال والثقة والتفرد. يجمع خبرائنا من مصممي الشعر بين الإبداع والدقة لتقديم نتائج أنيقة وطبيعية مخصصة لأسلوبك الشخصي.',
+        aboutText: 'في Ram Ismail Hair Dresser، نؤمن بأن كل امرأة تستحق أن تشعر بالجمال والثقة والتفرد. يجمع خبرائنا من مصممي الشعر بين الإبداع والدقة لتقديم نتائج أنيقة وطبيعية مخصصة لأسلوبك الشخصي.',
         servicesTitle: 'خدماتنا',
         galleryTitle: 'معرض الصور',
         contactTitle: 'اتصل بنا',
-        contactText: 'زرنا في <strong>Derviş Taş Hair Dresser</strong><br>أو تواصل معنا مباشرة لحجز موعد.',
+        contactText: 'زرنا في <strong>Ram Ismail Hair Dresser</strong><br>أو تواصل معنا مباشرة لحجز موعد.',
         chatWhatsapp: 'دردشة على WhatsApp',
 
         // About Page Detailed
         aboutFullTitle: 'إرث من الأناقة',
-        aboutFullText: 'تأسس صالوننا على يد خبير التجميل درويش تاش، وأصبح ملاذاً للباحثين عن مزيج من الرقي الكلاسيكي والفن الحديث. يقع الصالون في فندق ذا بنينسولا إسطنبول المرموق، ونقدم تجربة تتجاوز تصفيف الشعر التقليدي.',
+        aboutFullText: 'تأسس صالوننا على يد خبير التجميل رام اسماعيل، وأصبح ملاذاً للباحثين عن مزيج من الرقي الكلاسيكي والفن الحديث. يقع الصالون في رام اسماعيل المرموق، ونقدم تجربة تتجاوز تصفيف الشعر التقليدي.',
         expertiseTitle: 'خبرتنا العالمية',
         expertiseText: 'من تقنيات البالاج المميزة إلى القص الدقيق، يظل فريقنا في طليعة اتجاهات الشعر العالمية. نستخدم حصرياً منتجات فاخرة لضمان بقاء شعرك صحياً وحيوياً وخالداً.',
         philosophyTitle: 'فن الجمال الطبيعي',
@@ -222,7 +222,7 @@ const translations = {
         closedStatus: '○ مغلق - يفتح في 09:00',
 
         // Footer
-        copyright: '© 2026 Derviş Taş Hair Dresser. جميع الحقوق محفوظة.'
+        copyright: '© 2026 Ram Ismail Hair Dresser. جميع الحقوق محفوظة.'
     }
 };
 

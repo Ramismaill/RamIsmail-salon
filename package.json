@@ -1,7 +1,7 @@
 {
-    "name": "peninsula-salon",
+    "name": "ram-ismail-salon",
     "version": "1.0.0",
-    "description": "Peninsula Hair Salon Website",
+    "description": "Ram Ismail Hair Dresser Website",
     "type": "commonjs",
     "main": "server.js",
     "scripts": {
