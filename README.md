@@ -2,7 +2,7 @@
 
 A modern, elegant full-stack web application for a luxury hair salon featuring online booking, multilingual support, and admin panel management.
 
-🔗 **Live Demo**: [https://ram-ismail-salon.onrender.com](https://ramismail-salon-1.onrender.com)
+🔗 **Live Demo**: [https://ramismail-salon-1.onrender.com](https://ramismail-salon-1.onrender.com)
 
 ---
 
@@ -195,7 +195,7 @@ The application will be available at `http://localhost:3000`
 
 The application is deployed on Render.com with automatic deployments from the main branch.
 
-**Live URL**: [https://ramismail-salon.onrender.com](https://ramismail-salon.onrender.com)
+**Live URL**: [https://ramismail-salon-1.onrender.com](https://ramismail-salon-1.onrender.com)
 
 ### **Environment Variables (Render)**
 Set these in your Render dashboard:
