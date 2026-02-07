@@ -2,7 +2,7 @@
 
 A modern, elegant full-stack web application for a luxury hair salon featuring online booking, multilingual support, and admin panel management.
 
-🔗 **Live Demo**: [https://ram-ismail-salon.onrender.com](https://ramismail-salon.onrender.com)
+🔗 **Live Demo**: [https://ram-ismail-salon.onrender.com](https://ramismail-salon-1.onrender.com)
 
 ---
 
